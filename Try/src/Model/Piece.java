@@ -3,13 +3,11 @@ package Model;
 public class Piece{
     private String name;//棋子的名字
     private int rank;//等级（从1到8）
-    private Player Ofplayer;//棋子的主人
     private Coordinate coordinate;//棋子的位置
 
-    public Piece(String name, int rank, Player ofplayer) {
+    public Piece(String name, int rank) {
         this.name = name;
         this.rank = rank;
-        Ofplayer = ofplayer;
     }
 
     public Coordinate getCoordinate() {
@@ -48,13 +46,5 @@ public class Piece{
 
     public void setRank(int rank) {
         this.rank = rank;
-    }
-
-    public Player getOfplayer() {
-        return Ofplayer;
-    }
-
-    public void setOfplayer(Player ofplayer) {
-        Ofplayer = ofplayer;
     }
 }
