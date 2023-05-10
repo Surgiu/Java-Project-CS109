@@ -1,9 +1,9 @@
 package Model;
 
 public class Piece {
-    private String name;
-    private int rank;
-    private Player Ofplayer;
+    private String name;//棋子的名字
+    private int rank;//等级（从1到8）
+    private Player Ofplayer;//棋子的主人
 
     public Piece(String name, int rank, Player ofplayer) {
         this.name = name;
