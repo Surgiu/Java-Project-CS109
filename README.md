@@ -9,6 +9,6 @@
 
  [开发计划与安排](https://github.com/Surgiu/Java-Project-CS109/blob/Surgiu-patch-1/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92.md)
 
-以后我们的代码也将在这里共享，非常高效。代码在“Try”这个文件夹里
+以后我们的代码也将在这里共享，非常高效。代码在“[Try-src](https://github.com/Surgiu/Java-Project-CS109/tree/Surgiu-patch-1/Try/src)”这个文件夹里
 
 
