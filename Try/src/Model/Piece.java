@@ -21,13 +21,14 @@ public class Piece {
         }
     }
 
-    protected boolean correctMovement(Coordinate start, Coordinate end) {
+    public boolean correctMovement(Coordinate start, Coordinate end) {
         return Coordinate.distance(start.getRow(), start.getCol(), end.getRow(), end.getCol()) == 1
                 && Field.boundaryCheck(end);
     }
 
-    public void eat(Piece target) {
+    public void eat(Piece target, Grid grid, Player player) {
         if (Field.eatable(this, target)) {
+            move(target.getCoordinate(), grid, player);
             target = null;
         }
     }

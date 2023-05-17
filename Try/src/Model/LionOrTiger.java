@@ -14,7 +14,7 @@ public class LionOrTiger extends Piece {
     }
 
     @Override
-    protected boolean correctMovement(Coordinate start, Coordinate end) {
+    public boolean correctMovement(Coordinate start, Coordinate end) {
         if ()
     }
 }

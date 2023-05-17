@@ -8,12 +8,16 @@ public class Rat extends Piece {
 
     @Override
     public void move(Coordinate target, Grid grid, Player player) {
-        if()
+        if (correctMovement(this.getCoordinate(), target)
+                && grid.notOccupiedByPlayer(target.getRow(), target.getCol(), player)) {
+            this.setCoordinate(target);
+        }
     }
 
     @Override
-    public void eat(Piece target) {
-
+    public void eat(Piece target,Grid grid,Player player) {
+        if(target.getName().equals("elephant")) {
+            move(target.getCoordinate(),grid,player);
+        }
     }
-
 }

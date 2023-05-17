@@ -19,7 +19,7 @@ public class Field {
     public void init() {
         //上面都是蓝的
         blue.getPieceList().add(new LionOrTiger("tiger", 6, blue, new Coordinate(6, 0)));
-        blue.getPieceList().add(new Elephant("elephant", 7, blue, new Coordinate(6, 2)));
+        blue.getPieceList().add(new Piece("elephant", 7, blue, new Coordinate(6, 2)));
         blue.getPieceList().add(new Piece("cat", 2, blue, new Coordinate(5, 1)));
         blue.getPieceList().add(new Piece("wolf", 4, blue, new Coordinate(4, 2)));
         blue.getPieceList().add(new Piece("leopard", 5, blue, new Coordinate(2, 2)));
@@ -28,7 +28,7 @@ public class Field {
         blue.getPieceList().add(new Rat("rat", 1, blue, new Coordinate(0, 3)));
         //下面都是红的
         red.getPieceList().add(new LionOrTiger("tiger", 6, red, new Coordinate(0, 8)));
-        red.getPieceList().add(new Elephant("elephant", 7, red, new Coordinate(0, 6)));
+        red.getPieceList().add(new Piece("elephant", 7, red, new Coordinate(0, 6)));
         red.getPieceList().add(new Piece("cat", 2, red, new Coordinate(1, 7)));
         red.getPieceList().add(new Piece("wolf", 4, red, new Coordinate(2, 6)));
         red.getPieceList().add(new Piece("leopard", 5, red, new Coordinate(4, 6)));
@@ -80,7 +80,15 @@ public class Field {
     }
 
     public static boolean eatable(Piece p1, Piece p2) {
-        return p1.getRank() >= p2.getRank();
+        if (p1.correctMovement(p1.getCoordinate(), p2.getCoordinate())) {
+            if (p1.getName().equals("rat")
+                    && (p2.getName().equals("elephant") || p2.getName().equals("rat"))) {
+                return true;
+            } else {
+                return p1.getRank() >= p2.getRank();
+            }
+        }
+        return false;
     }
 
     public boolean checkWin(Player player) {
