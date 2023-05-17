@@ -6,6 +6,10 @@ public class LionOrTiger extends Piece {
         super(name, rank, ofplayer, coordinate);
     }
 
+    /*能移动的条件
+    如果在陆地且不临河：与父类完全相同
+    如果临河：1.只能走直线；2.
+     */
     @Override
     public void move(Coordinate target, Grid grid, Player player) {
         if (correctMovement(this.getCoordinate(), target)) {

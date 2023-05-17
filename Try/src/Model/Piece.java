@@ -13,6 +13,7 @@ public class Piece {
         this.coordinate = coordinate;
     }
 
+    //能移动的条件：1.移动距离为1；2.目的地没有被己方或更高级的敌方占领；3.目标不能是河；4.如果在陷阱中，目的地只要有棋就不能移动
     public void move(Coordinate target, Grid grid, Player player) {
         if (correctMovement(this.coordinate, target)
                 && grid.notOccupiedByPlayer(target.getRow(), target.getCol(), player)
