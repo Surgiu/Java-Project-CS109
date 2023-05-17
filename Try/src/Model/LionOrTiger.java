@@ -1,18 +1,20 @@
 package Model;
 
-import java.lang.annotation.Target;
 
-public class LionOrTiger extends Piece{
-    public LionOrTiger(String name, int rank, Player ofplayer) {
-        super(name, rank, ofplayer);
+public class LionOrTiger extends Piece {
+    public LionOrTiger(String name, int rank, Player ofplayer, Coordinate coordinate) {
+        super(name, rank, ofplayer, coordinate);
     }
+
     @Override
-    public void move(Coordinate coordinate) {
-        if(canJump(coordinate)) {
+    public void move(Coordinate target, Grid grid, Player player) {
+        if () {
 
         }
     }
-    private boolean canJump(Coordinate coordinate) {
 
+    @Override
+    protected boolean correctMovement(Coordinate start, Coordinate end) {
+        if ()
     }
 }
