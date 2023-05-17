@@ -12,13 +12,13 @@ public class Grid {
         RIVER, DENS, TRAP, GROUND//棋格的类型
     }
 
-    public boolean notOccupiedByPlayer(Grid target) {
-        if(target.occupy==0||(this.occupy!=target.occupy)) {
-            return true;
-        }else {
-            return false;
-        }
-    }
+//    public boolean notOccupiedByPlayer(Grid target) {//没被占返回true
+//        if (target.occupy == 0 || (this.occupy != target.occupy)) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
     public Type getType() {
         return type;

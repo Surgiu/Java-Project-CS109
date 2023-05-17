@@ -109,11 +109,13 @@ public class Field {
         return false;
     }
 
-    public boolean checkWin(Player player) {
-        if (player.getColor().equals(Player.Color.BLUE)) {
-            return grids[0][3].notOccupiedByPlayer(0, 3, player);
+    public int checkWin() {//红方胜输出1，蓝方胜输出2
+        if (grids[0][4].getOccupy() == -1) {
+            return 1;
+        } else if (grids[8][4].getOccupy() == -2) {
+            return 2;
         }
-        return false;
+        return 0;
     }
 
     public Grid[][] getGrids() {

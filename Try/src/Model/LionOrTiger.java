@@ -11,13 +11,6 @@ public class LionOrTiger extends Piece {
     如果临河：1.只能走直线；2.起点和终点之间都是河；3.不能走斜线；4.如果路线上有棋子则不能通过；5.如果对面有己方棋子或更高级的敌方则不能通过
      */
     @Override
-    public void move(Grid grid) {
-        if (correctMovement(this.getCoordinate(), grid.getCoordinate())) {
-            this.setCoordinate(grid.getCoordinate());
-        }
-    }
-
-    @Override
     public boolean correctMovement(Grid start, Grid end, Field field) {
         if (end.getType().equals(Grid.Type.RIVER)) {
             return false;
