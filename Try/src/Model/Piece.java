@@ -21,15 +21,16 @@ public class Piece {
         }
     }
 
+    public boolean correctMovement(Grid start, Grid end,Field field) {
+        return Coordinate.distance(start.getCoordinate().getRow(), start.getCoordinate().getCol(), end.getCoordinate().getRow(), end.getCoordinate().getCol()) == 1;
+    }
     public boolean correctMovement(Coordinate start, Coordinate end) {
-        return Coordinate.distance(start.getRow(), start.getCol(), end.getRow(), end.getCol()) == 1
-                && Field.boundaryCheck(end);
+        return Coordinate.distance(start.getRow(), start.getCol(), end.getRow(), end.getCol()) == 1;
     }
 
     public void eat(Piece target, Grid grid, Player player) {
         if (Field.eatable(this, target)) {
             move(target.getCoordinate(), grid, player);
-            target = null;
         }
     }
 

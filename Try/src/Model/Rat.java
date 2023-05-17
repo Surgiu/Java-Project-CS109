@@ -15,9 +15,10 @@ public class Rat extends Piece {
     }
 
     @Override
-    public void eat(Piece target,Grid grid,Player player) {
-        if(target.getName().equals("elephant")) {
-            move(target.getCoordinate(),grid,player);
+    public void eat(Piece target, Grid grid, Player player) {
+        if (target.getName().equals("elephant")) {
+            move(target.getCoordinate(), grid, player);
+            //还没有移除被吃者
         }
     }
 }

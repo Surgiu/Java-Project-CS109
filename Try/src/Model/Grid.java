@@ -4,7 +4,8 @@ package Model;
 public class Grid {
     private int areaType;//地盘。0表示红方，1表示蓝方
     private Type type;//类型
-
+    private Piece piece;
+    Coordinate coordinate;
 
     enum Type {
         RIVER, DENS, TRAP, GROUND//棋格的类型
@@ -35,5 +36,17 @@ public class Grid {
 
     public void setAreaType(int areaType) {
         this.areaType = areaType;
+    }
+
+    public Piece getPiece() {
+        return piece;
+    }
+
+    public void add(Piece piece) {
+        this.piece = piece;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
     }
 }

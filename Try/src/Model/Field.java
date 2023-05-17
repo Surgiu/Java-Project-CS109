@@ -1,40 +1,39 @@
 package Model;
 
-
 public class Field {
     private final int rowMax = 7;//棋盘的列数
 
     private final int colMax = 9;//棋盘的行数
 
     private Grid[][] grids = new Grid[rowMax][colMax];//棋盘
-
     private final Player blue;
     private final Player red;
 
     public Field(Player blue, Player red) {
         this.blue = new Player(Player.Color.BLUE);
         this.red = new Player(Player.Color.RED);
+        init();
     }
 
     public void init() {
         //上面都是蓝的
-        blue.getPieceList().add(new LionOrTiger("tiger", 6, blue, new Coordinate(6, 0)));
-        blue.getPieceList().add(new Piece("elephant", 7, blue, new Coordinate(6, 2)));
-        blue.getPieceList().add(new Piece("cat", 2, blue, new Coordinate(5, 1)));
-        blue.getPieceList().add(new Piece("wolf", 4, blue, new Coordinate(4, 2)));
-        blue.getPieceList().add(new Piece("leopard", 5, blue, new Coordinate(2, 2)));
-        blue.getPieceList().add(new Piece("dog", 3, blue, new Coordinate(1, 1)));
-        blue.getPieceList().add(new LionOrTiger("lion", 7, blue, new Coordinate(0, 0)));
-        blue.getPieceList().add(new Rat("rat", 1, blue, new Coordinate(0, 3)));
+        grids[6][0].add(new LionOrTiger("tiger", 6, blue, new Coordinate(6, 0)));
+        grids[6][2].add(new Piece("elephant", 7, blue, new Coordinate(6, 2)));
+        grids[5][1].add(new Piece("cat", 2, blue, new Coordinate(5, 1)));
+        grids[4][2].add(new Piece("wolf", 4, blue, new Coordinate(4, 2)));
+        grids[2][2].add(new Piece("leopard", 5, blue, new Coordinate(2, 2)));
+        grids[1][1].add(new Piece("dog", 3, blue, new Coordinate(1, 1)));
+        grids[0][0].add(new LionOrTiger("lion", 7, blue, new Coordinate(0, 0)));
+        grids[0][3].add(new Rat("rat", 1, blue, new Coordinate(0, 3)));
         //下面都是红的
-        red.getPieceList().add(new LionOrTiger("tiger", 6, red, new Coordinate(0, 8)));
-        red.getPieceList().add(new Piece("elephant", 7, red, new Coordinate(0, 6)));
-        red.getPieceList().add(new Piece("cat", 2, red, new Coordinate(1, 7)));
-        red.getPieceList().add(new Piece("wolf", 4, red, new Coordinate(2, 6)));
-        red.getPieceList().add(new Piece("leopard", 5, red, new Coordinate(4, 6)));
-        red.getPieceList().add(new Piece("dog", 3, red, new Coordinate(5, 7)));
-        red.getPieceList().add(new LionOrTiger("lion", 7, red, new Coordinate(6, 8)));
-        red.getPieceList().add(new Rat("rat", 1, red, new Coordinate(6, 8)));
+        grids[0][8].add(new LionOrTiger("tiger", 6, red, new Coordinate(0, 8)));
+        grids[0][6].add(new Piece("elephant", 7, red, new Coordinate(0, 6)));
+        grids[1][7].add(new Piece("cat", 2, red, new Coordinate(1, 7)));
+        grids[2][6].add(new Piece("wolf", 4, red, new Coordinate(2, 6)));
+        grids[4][6].add(new Piece("leopard", 5, red, new Coordinate(4, 6)));
+        grids[5][7].add(new Piece("dog", 3, red, new Coordinate(5, 7)));
+        grids[6][8].add(new LionOrTiger("lion", 7, red, new Coordinate(6, 8)));
+        grids[6][8].add(new Rat("rat", 1, red, new Coordinate(6, 8)));
         for (int i = 0; i < 2; i++) {
             for (int j = 2; j < 5; j++) {
                 grids[i][j].setAreaType(1);
@@ -76,7 +75,11 @@ public class Field {
 
 
     public static boolean boundaryCheck(Coordinate coordinate) {
-        return !(coordinate.getCol() > 6 || coordinate.getRow() > 8);
+        return !(coordinate.getCol() > 6 || coordinate.getRow() > 8 || coordinate.getCol() < 0 || coordinate.getRow() < 0);
+    }
+
+    public static boolean boundaryCheck(int row, int col) {
+        return row > 6 || col > 8 || row < 0 || col < 0;
     }
 
     public static boolean eatable(Piece p1, Piece p2) {
