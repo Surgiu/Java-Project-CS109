@@ -7,17 +7,17 @@ public class Rat extends Piece {
     }
 
     @Override
-    public void move(Coordinate target, Grid grid, Player player) {
-        if (correctMovement(this.getCoordinate(), target)
-                && grid.notOccupiedByPlayer(target.getRow(), target.getCol(), player)) {
-            this.setCoordinate(target);
+    public void move(Grid grid) {
+        if (correctMovement(this.getCoordinate(), grid.getCoordinate())
+                && grid.notOccupiedByPlayer(grid)){
+            this.setCoordinate(grid.getCoordinate());
         }
     }
 
     @Override
     public void eat(Piece target, Grid grid, Player player) {
         if (target.getName().equals("elephant")) {
-            move(target.getCoordinate(), grid, player);
+            move(grid);
             //还没有移除被吃者
         }
     }

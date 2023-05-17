@@ -33,17 +33,32 @@ public class Field {
         grids[4][6].add(new Piece("leopard", 5, red, new Coordinate(4, 6)));
         grids[5][7].add(new Piece("dog", 3, red, new Coordinate(5, 7)));
         grids[6][8].add(new LionOrTiger("lion", 7, red, new Coordinate(6, 8)));
-        grids[6][8].add(new Rat("rat", 1, red, new Coordinate(6, 8)));
+        grids[6][6].add(new Rat("rat", 1, red, new Coordinate(6, 8)));
+        for (Grid[] grid : grids) {
+            for (Grid value : grid) {
+                if (value.getPiece().getPlayer().getColor().equals(Player.Color.BLUE)) {
+                    value.setOccupy(-2);//设置占领信息
+                }
+            }
+        }
+        for (Grid[] grid : grids) {
+            for (Grid value : grid) {
+                if (value.getPiece().getPlayer().getColor().equals(Player.Color.RED)) {
+                    value.setOccupy(-1);//设置占领信息
+                }
+            }
+        }
         for (int i = 0; i < 2; i++) {
             for (int j = 2; j < 5; j++) {
-                grids[i][j].setAreaType(1);
+                grids[i][j].setAreaType(1);//设置地盘信息
             }
         }
         for (int i = 7; i < 9; i++) {
             for (int j = 2; j < 5; j++) {
-                grids[i][j].setAreaType(0);
+                grids[i][j].setAreaType(0);//设置地盘信息
             }
         }
+        //设置地图
         for (int i = 3; i < 6; i++) {
             for (int j = 1; j < 3; j++) {
                 grids[i][j].setType(Grid.Type.RIVER);
